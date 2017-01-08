@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Welcome to Code Club</h2>
+					<p>Rules of Code Club:</p>
+					<ol>
+						<li>Don't make Fight Club jokes about Code Club.</li>
+						<li>Don't make Fight Club jokes about Code Club.</li>
+						<li>No irony.</li>
+					</ol>
+					<aside class="notes">
+						<p>- Would like this to be <em>your</em> thing. Let us all know how we're doing. Can do this anonamously?</p>
+						<p>- All the devs (and James) are willing to help, at any time. Just ask. Drop us a Slack.</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Lesson 1</h2>
+					<h3>How do websites like, work and stuff?</h3>
+					<p class="fragment">A journey from browser to server, and back again.</p>
+				</section>
+
+				<section>
+					<h2>Overview</h2>
+					<ul>
+						<li class="fragment">Web browser (Chrome, obviously)</li>
+						<li class="fragment">DNS lookup ("Domain Name System")</li>
+						<li class="fragment">HTTP request sent</li>
+						<li class="fragment">Server</li>
+						<li class="fragment">Response sent back to browser</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Web Browsers</h2>
+					<ul>
+						<li class="fragment">Handle DNS lookups to route traffic to IP addresses</li>
+						<li class="fragment">Generate HTTP requests and handle responses</li>
+						<li class="fragment">Render HTML and CSS (Chrome uses WebKit/Blink), and run JavaScript (Chrome uses V8 engine)</li>
+						<li class="fragment">Part of rendering an HTML document is to retrieve any additional files requested such as images, css, js</li>
+						<li class="fragment">JavaScript can be used to dynamically create additional requests. This is how APIs function.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>DNS Servers</h2>
+					<ul>
+						<li class="fragment">Convert nice looking "www.facebook.com" into a hard to remember IP address</li>
+						<li class="fragment">IP addresses often change, like if you were to change hosting provider</li>
+						<li class="fragment">There can be a delay in a DNS server being updated, making a website unreachable for a time</li>
+						<li class="fragment">Browsers/operating systems will often cache a DNS entry so sometimes a device will lose a website for a while</li>
+					</ul>
+
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section>
+					<h2>HTTP Requests</h2>
+
+					<section>
+						<h4>Typical Requests</h4>
+
+						<pre class="fragment"><code data-trim data-noescape>
+							<!-- Request -->
+						</code></pre>
+					</section>
+					<section>
+						<h4>Request types</h4>
+						<ul>
+							<li>GET</li>
+							<li>POST</li>
+							<li>PUT</li>
+							<li>DELETE</li>
+						</ul>
+						<p>This is known as CRUD - Create, Read, Update, Delete.</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Web Servers</h2>
+				</section>
+
+				<section>
+					<h2>Reponses</h2>
+
+					<section>
+						<h4>Response codes</h4>
+						<p>2xx, 3xx, 4xx, 5xx</p>
+					</section>
+
+					<section>
+						<p>section 2</p>
+					</section>
+				</section>
+
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
