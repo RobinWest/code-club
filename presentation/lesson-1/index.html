@@ -6,20 +6,20 @@
 
 		<title>reveal.js</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="../source/css/reveal.css">
+		<link rel="stylesheet" href="../source/css/theme/black.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="../source/lib/css/zenburn.css">
 
 		<!-- Printing and PDF exports -->
-		<script>
+		<!-- <script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+		</script> -->
 	</head>
 	<body>
 		<div class="reveal">
@@ -50,9 +50,14 @@
 						<li class="fragment">Web browser (Chrome, obviously)</li>
 						<li class="fragment">DNS lookup ("Domain Name System")</li>
 						<li class="fragment">HTTP request sent</li>
-						<li class="fragment">Server</li>
+						<li class="fragment">Server processes request</li>
 						<li class="fragment">Response sent back to browser</li>
+						<li class="fragment">Browser renders response</li>
 					</ul>
+
+					<aside class="notes">
+						<p>(after fragments) Now on to a practical example.</p>
+					</aside>
 				</section>
 
 				<section>
@@ -62,8 +67,12 @@
 						<li class="fragment">Generate HTTP requests and handle responses</li>
 						<li class="fragment">Render HTML and CSS (Chrome uses WebKit/Blink), and run JavaScript (Chrome uses V8 engine)</li>
 						<li class="fragment">Part of rendering an HTML document is to retrieve any additional files requested such as images, css, js</li>
-						<li class="fragment">JavaScript can be used to dynamically create additional requests. This is how APIs function.</li>
+						<li class="fragment">JavaScript can be used to dynamically create additional requests. This is how APIs function. (Asynchronous)</li>
 					</ul>
+
+					<aside class="notes">
+						When the browser requests CSS and JS it is synchronous. Images and dynamic JS calls are async.
+					</aside>
 				</section>
 
 				<section>
@@ -76,6 +85,10 @@
 					</ul>
 
 					<aside class="notes">
+						<p>
+							Example diagram of how a request works:
+							<code>http://royal.pingdom.com/2009/06/08/a-visual-explanation-of-how-dns-lookups-work/</code>
+						</p>
 					</aside>
 				</section>
 
@@ -86,8 +99,25 @@
 						<h4>Typical Requests</h4>
 
 						<pre class="fragment"><code data-trim data-noescape>
-							<!-- Request -->
+GET / HTTP/1.1
+Host: code-club.kobas.co.uk
+Connection: keep-alive
+Pragma: no-cache
+Cache-Control: no-cache
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6
+Cookie: __utma=97245573.1794912210.1462444883.1483437033.1483456293.59; __utmc=97245573; __utmz=97245573.1483456293.59.31.utmcsr=t.co|utmccn=(referral)|utmcmd=referral|utmcct=/iAnpwoNm4N; KOBAS=1521ee9caacb30aeacc99fb07407b744b082b3bd; _ga=GA1.3.1794912210.1462444883
 						</code></pre>
+
+						<aside class="notes">
+							<p>GET = type of request (come back to this in next slide) | filepath | protocol (HTTP v1.1)</p>
+							<p>Host = DNS has already looked this up? But the server wants it too so it can handle multiple websites or subdomains on one IP address.</p>
+							<p>User-Agent = details about your browser and what you're viewing on - becomes useful for keeping users logged in.</p>
+							<p>Cookies = snippets of text that are saved in the browser that literally no one cares about.</p>
+						</aside>
 					</section>
 					<section>
 						<h4>Request types</h4>
@@ -114,7 +144,27 @@
 					</section>
 
 					<section>
-						<p>section 2</p>
+						<h4>Typical Response</h4>
+						<pre class="fragment"><code data-trim data-noescape>
+HTTP/1.1 200 OK
+Date: Mon, 09 Jan 2017 17:15:13 GMT
+Server: Apache/2.4.6 (CentOS)
+Last-Modified: Fri, 06 Jan 2017 14:59:55 GMT
+ETag: "1ea-5456e454dd0c0-gzip"
+Accept-Ranges: bytes
+Cache-Control: max-age=1, must-revalidate
+Expires: Mon, 09 Jan 2017 17:15:14 GMT
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 342
+Keep-Alive: timeout=15, max=99
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8							
+						</code></pre>
+
+						<aside class="notes">
+
+						</aside>
 					</section>
 				</section>
 
@@ -122,8 +172,8 @@
 			</div>
 		</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+		<script src="../source/lib/js/head.min.js"></script>
+		<script src="../source/js/reveal.js"></script>
 
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
@@ -132,10 +182,10 @@
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: '../source/plugin/markdown/marked.js' },
+					{ src: '../source/plugin/markdown/markdown.js' },
+					{ src: '../source/plugin/notes/notes.js', async: true },
+					{ src: '../source/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
 		</script>
