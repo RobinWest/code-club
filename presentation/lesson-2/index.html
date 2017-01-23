@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../source/css/reveal.css">
+		<link rel="stylesheet" href="../source/css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../source/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<!-- <script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script> -->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Lesson 2</h2>
+					<p>Let's start making stuff.</p>
+				</section>
+
+				<section>
+					<h2>We will need...</h2>
+					<ul>
+						<li class="fragment">A development environment (Server, Virtual Machine, Folder on desktop)</li>
+						<li class="fragment">A text editor (Notepad++, SublimeText, Atom)</li>
+						<li class="fragment">A goal - let's discuss that...</li>
+					</ul>
+
+					<aside class="notes">
+						Goal: We could start by trying to recreate (this - page with form on) page. That way we can just take it as far as styling up the page, validating and submitting a form to see the request created, or we could go as far as handling the request on the back end and saving it in a database.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Basic page set up</h2>
+					<pre class="fragment"><code data-trim data-noescape>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- content -->
+</body>
+</html>
+					</code></pre>
+				</section>
+
+
+
+			</div>
+		</div>
+
+		<script src="../source/lib/js/head.min.js"></script>
+		<script src="../source/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '../source/plugin/markdown/marked.js' },
+					{ src: '../source/plugin/markdown/markdown.js' },
+					{ src: '../source/plugin/notes/notes.js', async: true },
+					{ src: '../source/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
