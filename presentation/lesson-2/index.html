@@ -30,35 +30,147 @@
 				</section>
 
 				<section>
-					<h2>We will need...</h2>
-					<ul>
-						<li class="fragment">A development environment (Server, Virtual Machine, Folder on desktop)</li>
-						<li class="fragment">A text editor (Notepad++, SublimeText, Atom)</li>
-						<li class="fragment">A goal - let's discuss that...</li>
-					</ul>
+					<section>
+						<h2>We will need...</h2>
+						<ul>
+							<li class="fragment">A development environment (Server, Virtual Machine, Folder on desktop)</li>
+							<li class="fragment">A text editor (Notepad++, SublimeText, Atom)</li>
+							<li class="fragment">A goal - let's discuss that...</li>
+						</ul>
+						<aside class="notes">
+							Goal: We could start by trying to recreate <a href="/pages/lesson-2/form.html" target="_blank">this page</a>. That way we can just take it as far as styling up the page, validating and submitting a form to see the request created, or we could go as far as handling the request on the back end and saving it in a database.
+						</aside>
+					</section>
+
+					<section>
+						<h2>Set up</h2>
+						<ul>
+							<li>Create a directory on your desktop called <code>"code-club"</code></li>
+							<li>Create a directory within that called <code>"lesson-2"</code></li>
+							<li>Create a text file within that called <code>"index.html"</code></li>
+							<li>Download Atom - link incoming</li>
+						</ul>
+
+						<aside class="notes">
+							<a href="https://atom.io/" target="_blank">Atom</a>
+						</aside>
+
+					</section>
+
+				</section>
+
+				<section>
+					<h2>Basic HTML</h2>
+					<pre class="fragment"><code data-trim data-noescape>
+<span>
+&#x3C;h1&#x3E; my content... &#x3C;/h1&#x3E;
+</span>
+<span class="fragment">
+&#x3C;img src=&#x22;url/to/the/image&#x22; alt=&#x22;Alternative Text&#x22; /&#x3E;
+</span>
+<span class="fragment">
+&#x3C;img src=&#x22;url/to/the/image&#x22; alt=&#x22;Alternative Text&#x22;&#x3E;
+</span>
+<span class="fragment">
+&#x3C;!-- Comment --&#x3E;
+</span>
+
+					</code></pre>
 
 					<aside class="notes">
-						Goal: We could start by trying to recreate (this - page with form on) page. That way we can just take it as far as styling up the page, validating and submitting a form to see the request created, or we could go as far as handling the request on the back end and saving it in a database.
+						<a href="http://www.w3schools.com/html/default.asp" target="_blank">w3c Schools</a>
 					</aside>
 				</section>
 
 				<section>
 					<h2>Basic page set up</h2>
-					<pre class="fragment"><code data-trim data-noescape>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<!-- content -->
-</body>
-</html>
-					</code></pre>
+
+					<section>
+						<p>Open up <code>index.html</code></p>
+					</section>
+
+					<section>
+						<pre><code>
+&#x3C;!DOCTYPE html&#x3E;
+&#x3C;html lang=&#x22;en&#x22;&#x3E;
+&#x3C;head&#x3E;
+&#x9;&#x3C;meta charset=&#x22;UTF-8&#x22;&#x3E;
+&#x9;&#x3C;title&#x3E;Document&#x3C;/title&#x3E;
+&#x3C;/head&#x3E;
+&#x3C;body&#x3E;
+&#x9;&#x3C;!-- content --&#x3E;
+&#x3C;/body&#x3E;
+&#x3C;/html&#x3E;
+						</code></pre>
+					</section>
 				</section>
 
+				<section>
+					<h2>Basic CSS</h2>
+					<section>
+						<pre class="fragment"><code data-trim data-noescape>
+<span>h1{ color: red; }</span>
 
+<span class="fragment">.my-class-name{ ... }</span>
+
+<span class="fragment">#my-id-name{ ... }</span>
+
+<span class="fragment">#my-parent-id .my-child-class{ ... }</span>
+
+<span class="fragment">p.specific-element{ ... }</span>
+						</code></pre>
+
+						<aside class="notes">
+							<p>Very little difference in how CSS treats id vs class.</p>
+							<p>Extremely important difference in how JS treats id vs class. Each id on page has to be unique. In general, avoid using id unless you need to.</p>
+							<p><strong>Go through some examples using <a href="/pages/lesson-2/" target="_blank">this page</a>.</strong></p>
+						</aside>
+					</section>
+
+					<section>
+						<pre><code data-trim data-noescape>
+&#x3C;!DOCTYPE html&#x3E;
+&#x3C;html lang=&#x22;en&#x22;&#x3E;
+&#x3C;head&#x3E;
+&#x9;&#x3C;meta charset=&#x22;UTF-8&#x22;&#x3E;
+&#x9;&#x3C;title&#x3E;Document&#x3C;/title&#x3E;
+
+&#x3C;style&#x3E; css goes here... &#x3C;/style&#x3E;
+
+&#x3C;/head&#x3E;
+&#x3C;body&#x3E;
+&#x9;&#x3C;!-- content --&#x3E;
+&#x3C;/body&#x3E;
+&#x3C;/html&#x3E;
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Let's do it!</h2>
+						<ul class="fragment">
+							<li>Put a form on the page with a title, inputs and a button</li>
+							<li>Make it look nice with CSS</li>
+							<li>Add some validation classes with CSS</li>
+							<li>Make the form submit on button press</li>
+							<li><em>Bonus:</em> Make the form validate with JS</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Form</h2>
+						<pre><code data-trim data-noescape>
+&#x3C;form&#x3E;
+&#x9;&#x3C;label for=&#x22;myInputId&#x22;&#x3E;Name&#x3C;/label&#x3E;
+&#x9;&#x3C;input type=&#x22;text&#x22; id=&#x22;myInputId&#x22; name=&#x22;myInputName&#x22;&#x3E;
+
+&#x9;&#x3C;button type=&#x22;submit&#x22;&#x3E;&#x3C;/button&#x3E;
+&#x3C;/form&#x3E;
+						</code></pre>
+					</section>
+
+				</section>
 
 			</div>
 		</div>
