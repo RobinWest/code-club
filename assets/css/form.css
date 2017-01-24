@@ -1,0 +1,49 @@
+html {
+	height: 100%;
+}
+body{
+	height: 100%;
+	color: #fff;
+	background: #bd2daf;
+	background: -moz-linear-gradient(-45deg, #bd2daf 0%, #85298f 37%, #64196b 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, #bd2daf), color-stop(37%, #85298f), color-stop(100%, #64196b));
+	background: -webkit-linear-gradient(-45deg, #bd2daf 0%, #85298f 37%, #64196b 100%);
+	background: -o-linear-gradient(-45deg, #bd2daf 0%, #85298f 37%, #64196b 100%);
+	background: -ms-linear-gradient(-45deg, #bd2daf 0%, #85298f 37%, #64196b 100%);
+	background: linear-gradient(135deg, #bd2daf 0%, #85298f 37%, #64196b 100%);
+}
+.container{
+	max-width: 460px;
+	width: 60%;
+	margin: 0em auto;
+	padding-top: 2em;
+}
+
+form{
+	color: #333;
+	padding: 0.4em 1em;
+	background-color: #fff;
+	-webkit-box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+	box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+form label{
+	display: block;
+	margin-top: 1em;
+}
+
+form input{
+	display: block;
+	width: 100%;
+	margin: 0.4em 0;
+	padding: 0.8em;
+}
+
+form input.invalid{
+	border: #e60d6e 2px solid;
+}
+
+form button{
+	margin: 1em 0;
+	float: right;
+}

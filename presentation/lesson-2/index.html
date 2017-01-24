@@ -38,27 +38,52 @@
 					</ul>
 
 					<aside class="notes">
-						Goal: We could start by trying to recreate (this - page with form on) page. That way we can just take it as far as styling up the page, validating and submitting a form to see the request created, or we could go as far as handling the request on the back end and saving it in a database.
+						Goal: We could start by trying to recreate <a href="http://code-club.rwest.kobas.internal/pages/lesson-2/form.html" target="_blank">this page</a>. That way we can just take it as far as styling up the page, validating and submitting a form to see the request created, or we could go as far as handling the request on the back end and saving it in a database.
 					</aside>
 				</section>
 
 				<section>
 					<h2>Basic page set up</h2>
-					<pre class="fragment"><code data-trim data-noescape>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<!-- content -->
-</body>
-</html>
+					<pre class="fragment"><code>
+&#x3C;!DOCTYPE html&#x3E;
+&#x3C;html lang=&#x22;en&#x22;&#x3E;
+&#x3C;head&#x3E;
+&#x9;&#x3C;meta charset=&#x22;UTF-8&#x22;&#x3E;
+&#x9;&#x3C;title&#x3E;Document&#x3C;/title&#x3E;
+&#x3C;/head&#x3E;
+&#x3C;body&#x3E;
+&#x9;&#x3C;!-- content --&#x3E;
+&#x3C;/body&#x3E;
+&#x3C;/html&#x3E;
 					</code></pre>
 				</section>
 
+				<section>
+					<h2>Basic CSS</h2>
+					<pre class="fragment"><code data-trim data-noescape>
+<span>h1{ color: red; }</span>
 
+<span class="fragment">.my-class-name{ color: red; }</span>
+
+<span class="fragment">#my-id-name{ color: red; }</span>
+
+<span class="fragment">#my-parent-id .my-child-class{ color: red; }</span>
+
+<span class="fragment">p.specific-element{ color: red; }</span>
+
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Let's do it!</h2>
+					<ul class="fragment">
+						<li>Put a form on the page with a title, inputs and a button</li>
+						<li>Make it look nice with css</li>
+						<li>Add some validation classes with CSS</li>
+						<li>Make the form submit on button press</li>
+						<li><em>Bonus:</em> Make the form validate with JS</li>
+					</ul>
+				</section>
 
 			</div>
 		</div>

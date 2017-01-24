@@ -1,6 +1,22 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+*:focus{
+    outline: none;
+}
+
 body{
 	font-family: helvetica, arial, sans-serif;
 	color: #333;
+	margin: 0;
 }
 
 code{
@@ -10,21 +26,35 @@ code{
 }
 
 button{
-	color: #fff;
-	font-size: 1.2em;
 	font-weight: bold;
+	font-size: 1.2em;
+	color: #fff;
+	background-color: #65c15c;
+	border: 0;
+	padding: 0.4em 0.8em;
+	box-shadow: rgba(0,0,0,0.2) 0px 2px 2px 0;
+	transition: box-shadow ease 200ms;
+}
+button:hover{
+	box-shadow: rgba(0,0,0,0.4) 0px 2px 6px 0;
+}
+button:active{
+	transition: box-shadow ease 100ms, transform ease 100ms;
+	transform: translateY(2px);
+	background-color: #57ac4e;
+	box-shadow: rgba(0,0,0,0.2) 0px 2px 2px 0;
+}
+
+button.spring{
 	border-radius: 0;
-	padding: 0.6em 1.2em;
-	background-color: #3770AA;
-	border: 1px solid #1D4982;
-	box-shadow: #1D4982 4px 4px 0 0;
+	box-shadow: #498e43 4px 4px 0 0;
 	outline: none;
 	transition: all ease 100ms;
 }
 
-button:active{
+button.spring:active{
 	margin-top: 3px;
 	margin-left: 3px;
-	box-shadow: #1D4982 1px 1px 0 0;
+	box-shadow: #498e43 1px 1px 0 0;
 	transition: none;
 }
