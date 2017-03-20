@@ -41,4 +41,9 @@ $(document).ready(function(){
 
 	});
 
+	$('#signup-submit').on('click', function(event){
+		// This stops the form from submitting and causing the page to reload
+		event.preventDefault();
+	})
+
 });

@@ -1,0 +1,15 @@
+body.alternative{
+	background-color: #CAC5BD;
+}
+
+.container{
+	max-width: 600px;
+	margin: 2em 1em;
+	padding: 1em;
+}
+.container div{
+	background-color: #677CCA;
+	border-radius: 3px;
+	padding: 1em;
+	margin: 1em;
+}
