@@ -26,31 +26,36 @@
 			<div class="slides">
 				<section>
 					<h2>Welcome to Code Club</h2>
-					<p class="fragment">(again)</p>
 
 					<aside class="notes">
 						<p>- Would like this to be <em>your</em> thing. What do you want to learn?</p>
-						<p>- Let us all know how we're doing. I will try set up some sort of anonymous comments box.</p>
-						<p>- All the devs (and James) are willing to help. Just ask. Drop us a Slack in #codeclub or personally.</p>
+						<p>- First couple sessions will be basic overviews of stuff just to get on the same page. Sorry if it's a bit patronising to some.</p>
+						<p>- Will see about creating a #codeclub Slack channel so you can ask questions. Will try get the other devs involved (I'm sure they'll be down).</p>
+						<p>- Interrupt any time with questions! No one should get left behind.</p>
+						<p>- If you need to leave, or aren't too interested in what's going on, no problem. Feel free to drop in and out. I won't be offended.</p>
+						<p>- Let me know how it's going. Any feedback, anything you want to know more about, any questions you didn't feel comfortable asking.</p>
 					</aside>
 				</section>
 
 				<section>
 					<h2>Lesson 1</h2>
-					<h3>How do websites like, work and stuff?</h3>
-					<p class="fragment">A journey from your web browser to a server, and back again.</p>
+					<h3>How do websites, <span class="fragment">like,</span> <span class="fragment">work and stuff?</span></h3>
+					<p class="fragment">(A journey from your web browser to a server, and back again.)</p>
 
 					<aside class="notes">
 						<p>- There are a lot of different pieces involved in this journey.</p>
 						<p>- ...but they are actually a lot simpler than they may seem at first.</p>
-						<p>- Familiar with HTML, CSS, JS? We can run more detailed sessions some other time.</p>
+						<p>- You've probably heard of (or are familiar with) HTML, CSS, JS? We will run more detailed sessions some other time.</p>
+						<p>- May have also heard words like HTTP, DNS, "Rendering", "Requests", Database, IP Address etc. Let's try break down some of their mystery.</p>
+						<p>- I am not completely clear on all of these things, and exactly how they work. It's great to have an overview but not strictly important to know everything. I'll do my best!</p>
 					</aside>
 				</section>
 
 				<section>
 					<h2>Overview</h2>
+					<p>What is involved when you visit a website?</p>
 					<ul>
-						<li class="fragment">Web browser (Chrome, of course)</li>
+						<li class="fragment">Web browser (Chrome, Firefox, Not Internet Explorer)</li>
 						<li class="fragment">DNS lookup ("Domain Name System")</li>
 						<li class="fragment">HTTP request sent</li>
 						<li class="fragment">Server processes request</li>
@@ -60,27 +65,34 @@
 
 					<aside class="notes">
 						<p>- This is roughly what is involved when you visit a website.</p>
-						<p>(after fragments) Now on to a practical example.</p>
+						<p>- Browser: Where you start, by typing a URL into the address bar.</p>
+						<p>- DNS: Like a phone book. Converts nice name to IP address.</p>
+						<p>- HTTP: (Hypertext transfer protocol). A format for transferring data.</p>
+						<p>- Server: A computer somewhere in the world, receives a message asking for a page and thinks about it.</p>
+						<p>- Response: Server decides what data to send back - often the HTML for a web page.</p>
+						<p>- Browser: Gets the response and decides what to do with it.</p>
 					</aside>
 				</section>
 
 				<section>
 					<h2>Web Browsers</h2>
+					<p class="fragment">Responsibilities</p>
 					<ul>
 						<li class="fragment">Handle DNS lookups to route traffic to IP addresses</li>
-						<li class="fragment">Generate HTTP requests and handle responses</li>
-						<li class="fragment">Render HTML and CSS (Chrome uses WebKit/Blink), and run JavaScript (Chrome uses V8 engine)</li>
+						<li class="fragment">Generate HTTP requests, and then later handles the response</li>
+						<li class="fragment">Render HTML and CSS (Chrome uses Blink/Webkit), and run JavaScript (Chrome uses V8 engine)</li>
 						<li class="fragment">Part of rendering an HTML document is to retrieve any additional files requested such as images, css, js</li>
 						<li class="fragment">JavaScript can be used to dynamically create additional requests. This is how APIs function. (Asynchronous)</li>
 					</ul>
 
 					<aside class="notes">
-						<p>Will come back to all of these in more detail</p>
-						<p>DNS: Think of DNS like a phonebook, except for IP addresses</p>
-						<p>HTTP: "Hey give me this page" - "Well okay then!"</p>
-						<p>Render: If we did request a webpage...</p>
-						<p>Additional requests: HTML is just text with instructions. Some instructions are to get images or CSS. When the browser requests CSS and JS it is synchronous. Images and dynamic JS calls are async.</p>
-						<p>AJAX: When data is sent or received via javascript, it's called asynchronous request.</p>
+						<p>Will come back to all of these in more detail, so bear with me.</p>
+						<p>DNS: (DNS like a phonebook, except for IP addresses.) Web browser first of all hits the DNS server to ask for an IP address.</p>
+						<p>HTTP: Sends message to IP address saying "Hey give me this page". If server responds with "Well okay then!" -- [next fragment].</p>
+						<p>Render: If we did request a webpage, "render" it - ie, display it, in all it's colourful glory. As an FED I don't really know/care about how Blink/Webkit/V8 work beyond basics.</p>
+						<p>Additional requests: HTML is just text with instructions. Some instructions are to get images or CSS. When the browser requests CSS and JS it is synchronous. Images calls are async (they happen separate to the page loading).</p>
+						<p>AJAX: When data is sent or received via javascript, it's called asynchronous request. Happens in the background. Does the same kind of HTTP request the browser did.</p>
+						<p>Example: DisplaySweet.com</p>
 					</aside>
 				</section>
 
@@ -107,10 +119,11 @@
 
 					<section>
 						<h4>Typical Requests</h4>
+						<p>http://code-club.website.co.uk/</p>
 
 						<pre class="fragment"><code data-trim data-noescape>
 GET / HTTP/1.1
-Host: code-club.kobas.co.uk
+Host: code-club.website.co.uk
 Connection: keep-alive
 Pragma: no-cache
 Cache-Control: no-cache
@@ -119,18 +132,19 @@ User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
 Accept-Encoding: gzip, deflate, sdch
 Accept-Language: en-GB,en-US;q=0.8,en;q=0.6
-Cookie: __utma=97245573.1794912210.1462444883.1483437033.1483456293.59; __utmc=97245573; __utmz=97245573.1483456293.59.31.utmcsr=t.co|utmccn=(referral)|utmcmd=referral|utmcct=/iAnpwoNm4N; KOBAS=1521ee9caacb30aeacc99fb07407b744b082b3bd; _ga=GA1.3.1794912210.1462444883
+Cookie: __utma=97245573.1794912210.1462444883.1483437033.1483456293.59; __utmc=97245573; __utmz=97245573.1483456293.59.31.utmcsr=t.co|utmccn=(referral)|utmcmd=referral|utmcct=/iAnpwoNm4N; SESSION=1521ee9caacb30aeacc99fb07407b744b082b3bd; _ga=GA1.3.1794912210.1462444883
 						</code></pre>
 
 						<aside class="notes">
 							<p>GET: type of request (come back to this in next slide) | filepath | protocol (HTTP v1.1)</p>
-							<p>Host: DNS has already looked this up. But the server wants it too so it can handle multiple websites or subdomains on one IP address.</p>
+							<p>Host: DNS has already looked up the IP for this. But the server wants it too so it can handle multiple websites or subdomains on one IP address.</p>
+							<p>Connection: "Don't go away, talk to you in a minute"</p>
+							<p>Pragma/Cache-control: Pragma was replaced, but serves same purpose. "Give me a fresh copy of this".</p>
 							<p>User-Agent: details about your browser and what you're viewing on - becomes useful for keeping users logged in.</p>
-							<p>Cookies: snippets of text that are saved in the browser that literally no one cares about.</p>
-							<p>Accept: "I want you to GET code-club.kobas.co.uk, and I will accept "text/html".</p>
-							<p>Look into logs (if we haven't already) to see a request come in.</p>
-							<p>We send a chunk of text, we get back a chunk of text and a payload.</p>
-							<p>JavaScript can make requests in the background (async).</p>
+							<p>Accept: "I want you to GET code-club.website.co.uk, and I will accept "text/html".</p>
+							<p>Cookies: snippets of text that are saved in the browser and accessible only by the website that set them.</p>
+							<p>We send a chunk of text, we get back a chunk of text.</p>
+							<p>JavaScript can make these requests too, in the background (async).</p>
 						</aside>
 					</section>
 					<section>
@@ -156,20 +170,17 @@ Cookie: __utma=97245573.1794912210.1462444883.1483437033.1483456293.59; __utmc=9
 				<section>
 					<h2>Web Servers</h2>
 					<ul>
-						<li class="fragment">Linux (CentOS*, RedHat, Ubuntu) or Windows Server (😑)</li>
-						<li class="fragment">Apache*, NGINX, Node.js</li>
-						<li class="fragment">PHP*, Ruby, Node.js*, Python</li>
-						<li class="fragment">MySQL/MariaDB*, MongoDB, Oracle (?)</li>
+						<li class="fragment">Linux (CentOS, RedHat, Ubuntu) or Windows Server</li>
+						<li class="fragment">Apache, NGINX, Node.js</li>
+						<li class="fragment">PHP, Ruby, Node.js, Python, C*</li>
+						<li class="fragment">MySQL, MongoDB, PostgreSQL</li>
 					</ul>
-					<p>* <em>Stuff we use</em></p>
 
 					<aside class="notes">
-						<p>Linux: OS designed for web traffic</p>
-						<p>Apache: handles HTTP requests and responses</p>
-						<p>Look at Apache vhost file to see the matching domain and where the files point to</p>
-						<p><code>*:80</code>, DocumentRoot, ServerName, Logs, php_value</p>
+						<p>Linux: OS designed to run programs for handling web stuff</p>
+						<p>Apache: handles HTTP requests and responses - "If requesting page /home, do this thing and send it back."</p>
 						<p>PHP: Processing data after a request</p>
-						<p>SQL: Storage of that data</p>
+						<p>DBs: Storage of that data</p>
 					</aside>
 				</section>
 
@@ -213,14 +224,23 @@ Content-Type: text/html; charset=UTF-8
 							<p>HTTP, 200, All good!</p>
 							<p>Cache nonsense: Instructions on how long the browser should cache for.</p>
 							<p>Content-Type: "Here's the format I returned it in"</p>
+							<p>ETag: Fingerprint to help with caching. Will remain the same if the file hasn't changed.</p>
+							<p>Accept-Ranges: Simply used for helping a server pause/continue file downloads. Not important.</p>
+							<p>Cache-Control: Server is telling us not to cache this, make sure we get a fresh one every time.</p>
+							<p>Vary: More caching stuff. I dunno, lot a crap here that isn't very interesting.</p>
+							<p>Content-Encoding: gzip is compression, so just informing the browser to unzip it first.</p>
+							<p>Content-Length: Size in bytes of the response.</p>
+							<p>Keep-Alive: Information about how long to wait responses here before giving up.</p>
+							<p>Content-Type: what sort of info did we get back? An HTML file to render? Some data?</p>
 							<p>Basically just information for the browser on how to interperet the data.</p>
+							<p>In addition: the response "body" - which would be the actual HTML file.</p>
 						</aside>
 					</section>
 				</section>
 
 				<section>
-					<h1>That's the ball game</h1>
-					<h2>Get outta here 🍻</h2>
+					<h1>That's the ball game!</h1>
+					<h2>Any questions?</h2>
 				</section>
 			</div>
 		</div>

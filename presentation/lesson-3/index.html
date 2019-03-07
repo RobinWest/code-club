@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../source/css/reveal.css">
+		<link rel="stylesheet" href="../source/css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../source/lib/css/zenburn.css">
+
+		<style>
+			.highlight {
+				color: #EFD262;
+			}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<!-- <script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script> -->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Lesson 3</h2>
+					<p>CSS</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>What is it again?</h2>
+						<h3 class="fragment"><strong class="highlight">C</strong>ascading <strong class="highlight">S</strong>tyle <strong class="highlight">S</strong>heets</h3>
+						<aside class="notes">
+							<p>- We're going to go through a couple examples, then we are going to recreate a design with HTML and CSS in Codepen</p>
+						</aside>
+					</section>
+
+					<section>
+						<h3>With CSS you can...</h3>
+
+						<ul>
+							<li class="fragment">Add colours to elements and content</li>
+							<li class="fragment">Add backgrounds colours and images to elements</li>
+							<li class="fragment">Change the layout and positioning of elements</li>
+							<li class="fragment">Change the size of elements and content</li>
+							<li class="fragment">Add animations and transitions</li>
+							<li class="fragment">Add minor interactivity such as hover styles</li>
+						</ul>
+
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>The Cascade</h2>
+
+						<ul>
+							<li class="fragment">External Stylesheet</li>
+							<li class="fragment">Embedded Stylesheet</li>
+							<li class="fragment">Inline Styles</li>
+						</ul>
+
+						<aside class="notes">
+							<p>- CSS holds a lot of power because of something called inheritance</p>
+							<p>- Inheritance basically means that there is a priority order to where you CSS is, and higher priority will overwrite lower priority</p>
+							<p>(next slides)</p>
+							<p>- Three types of stylesheet, in this order of priority</p>
+							<p>- We're going to look at a diagram, and then go into examples because it sounds more complicated than it is...</p>
+							<p>- Codepen is effectively an External Stylesheet (demonstrate embedded)</p>
+							<p>- While we're learning, I don't want us to concentrate too much on all of these three types of styling. We're gunna use Codepen for a bit so it makes it really easy for us.</p>
+							<p>- In general, in modern web dev, we only ever really use External stylesheets.</p>
+						</aside>
+					</section>
+
+					<section>
+						<h2>Cascade Priority</h2>
+
+						<p>
+							<a href="./img/stylesheet_priority.svg" target="_blank">Diagram</a>
+						</p>
+						<p>
+							<a href="https://codepen.io/robin-ds/pen/GzLzZW?editors=1100" target="_blank">Example on Codepen</a>
+						</p>
+
+						<aside class="notes">
+							<p>- Basic rule is, whatever is written lower down, is higher priority</p>
+						</aside>
+					</section>
+
+					<section>
+						<h2>Selector Priority</h2>
+
+						<a href="https://codepen.io/robin-ds/pen/aXxPqQ?editors=1100" target="_blank">Example on Codepen</a>
+
+						<aside class="notes">
+							<p>- Talked a little bit about selectors last week - these are the ways that you can target something you want to style</p>
+							<p>- There is also something called "Specificity" (hardest word in the world) that plays into priority</p>
+							<p>- The more specific your selector, the higher priority</p>
+
+							<p>- (Talk through the styles)</p>
+							<p>- (Move the class selectors above to illustrate the priority)</p>
+							<p>- DEVTOOLS! Most useful tool you've got to see what's overwriting what</p>
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Let's do a thing!</h2>
+
+						<p>
+							<a href="https://www.figma.com/file/DWkKl9xDaBbEV1OL69hat2ej/Dog-tile?node-id=0%3A1" target="_blank">Design on Figma</a>
+						</p>
+
+						<aside class="notes">
+							<p>- (Post it to Slack)</p>
+						</aside>
+					</section>
+
+					<section>
+						<h2>There is more than one way to skin a cat</h2>
+						<h4 class="fragment">Don't worry, we're not going to skin a cat</h4>
+
+						<ul>
+							<li class="fragment">Focus on getting the content on the page</li>
+							<li class="fragment">Start with the simple stuff, like colours or fonts</li>
+							<li class="fragment">Don't worry about getting it looking exactly right – in fact, feel free to get creative</li>
+							<li class="fragment">Let me know if/when you get stuck!</li>
+						</ul>
+
+						<aside class="notes">
+							<p>- Sketching is really useful, draw boxes and think about how you'll lay it out. You could start with that?</p>
+							<p>- Get on Codepen, Fork the <a href="https://codepen.io/robin-ds/pen/omOKBm?editors=1100" target="_blank">template</a> (post to Slack)</p>
+							<p>- Let's move through these designs. They are broken up in a way that should allow you to build on them. See how far you get.</p>
+							<p>- I'll chill out, or walk around like a teacher or something so shout if you need me</p>
+							<p>- JOIN THE CODECLUB SLACK CHANNEL. There will be a Survey in there, please answer it.</p>
+							<p>- Please also post your Codepen up there when you feel confident. JUDGEMENT FREE ZONE!</p>
+						</aside>
+					</section>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../source/lib/js/head.min.js"></script>
+		<script src="../source/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '../source/plugin/markdown/marked.js' },
+					{ src: '../source/plugin/markdown/markdown.js' },
+					{ src: '../source/plugin/notes/notes.js', async: true },
+					{ src: '../source/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

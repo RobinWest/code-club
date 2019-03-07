@@ -12,6 +12,12 @@
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="../source/lib/css/zenburn.css">
 
+		<style>
+			.highlight {
+				color: #EFD262;
+			}
+		</style>
+
 		<!-- Printing and PDF exports -->
 		<!-- <script>
 			var link = document.createElement( 'link' );
@@ -26,59 +32,146 @@
 			<div class="slides">
 				<section>
 					<h2>Lesson 2</h2>
-					<p>Let's start making stuff.</p>
+					<p>HTML, CSS, JavaScript, Oh My!</p>
+				</section>
+
+				<section>
+					<h2>First things first...</h2>
+					<ul>
+						<li class="fragment">There is gunna be some boring stuff</li>
+						<li class="fragment">90% of HTML & web technology is not necessary to know off-by-heart</li>
+						<li class="fragment">Use your brain efficiently. Use the tools available to you.</li>
+						<li class="fragment">We've got a Slack channel now! <code>#code-club</code></li>
+					</ul>
+
+					<aside class="notes">
+						<p>- Boring stuff. It's important to go over some of this stuff because it really tripped me up when I was learning.</p>
+						<p>- We'll go over some of it briefly so that you are <em>aware</em> of it, but it's not something you need to commit to memory.</p>
+						<p>- I'll try to make it obvious which stuff is boring and unimportant.</p>
+						<p>- When you learn stuff, it's cognitively heavy. Your brain is taking a lot in. It may be tempting to try to remember everything, but it's much more efficient to remember that something exists, and use Google to look it up.</p>
+						<p>- When I was learning, I tried for several years to do it by myself and just got stuck and couldn't progress. The thing that tipped me over was having people to ask stupid questions to. Ask questions when you're stuck!</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>What the heck is HTML anyway?</h2>
+					<ul>
+						<li class="fragment"><strong class="highlight">H</strong>yper-<strong class="highlight">T</strong>ext <strong class="highlight">M</strong>arkup <strong class="highlight">L</strong>anguage</li>
+					</ul>
+					<aside class="notes">
+						<p>- You might remember HTTP - HyperText Transfer Protocol, ie a method of transferring stuff like HTML.</p>
+						<p>- What does markup mean? It's a term used in other industries and usually means something different every time, but it's always a way of describing something. Architecture has something called ADML (Arch Desc Mark Lang). It just means a way of explaining to a computer how something is structured.</p>
+						<p>- HTML is just text, with some funny symbols, that fit together in a structure to describe a page, and it's content, to a browser.</p>
+					</aside>
 				</section>
 
 				<section>
 					<section>
-						<h2>We will need...</h2>
+						<h2>HTML is based on XML</h2>
+						<h3 class="fragment">What the heck is XML?!</h3>
 						<ul>
-							<li class="fragment">A development environment (Server, Virtual Machine, Folder on desktop)</li>
-							<li class="fragment">A text editor (Notepad++, SublimeText, Atom)</li>
-							<li class="fragment">A goal - let's discuss that...</li>
+							<li class="fragment">e<strong class="highlight">X</strong>tensible <strong class="highlight">M</strong>arkup <strong class="highlight">L</strong>anguage</li>
 						</ul>
+
+						<pre class="fragment"><code data-trim data-noescape>
+&#x3C;parent-tag&#x3E;
+	&#x3C;child-tag attribute="value"&#x3E;Content!&#x3C;/child-tag&#x3E;
+&#x3C;/parent-tag&#x3E;
+						</code></pre>
+
 						<aside class="notes">
-							Goal: We could start by trying to recreate <a href="/pages/lesson-2/form.html" target="_blank">this page</a>. That way we can just take it as far as styling up the page, validating and submitting a form to see the request created, or we could go as far as handling the request on the back end and saving it in a database.
+							<p>- XML allows for anything following this structure</p>
+							<p>- A pair of "elements" or "tags" (with chevrons), one opening, one closing</p>
+							<p>- A tag can have an attribute with a value</p>
+							<p>- A tag can have content</p>
+							<p>- Tags can be nested inside each other infinitely, and a parent can have multiple children</p>
+							<p>Terminology:</p>
+							<p>- Nesting/nested - when one tag lives inside another, it is "nested"</p>
+							<p>- Often referred to as Parent and Child. Also Grandparent, or Grandchild sometimes. Anything more than that is Ancestor or Descendant.</p>
 						</aside>
 					</section>
 
 					<section>
-						<h2>Set up</h2>
-						<ul>
-							<li>Create a directory on your desktop called <code>"code-club"</code></li>
-							<li>Create a directory within that called <code>"lesson-2"</code></li>
-							<li>Create a text file within that called <code>"index.html"</code></li>
-							<li>Download Atom - link incoming</li>
-						</ul>
+						<h2>Realistic example of XML</h2>
+
+						<pre class="fragment"><code data-trim data-noescape>
+&#x3C;apartment floor="14"&#x3E;
+	&#x3C;apartment-name&#x3E;Grand Manor&#x3C;/apartment-name&#x3E;
+
+	&#x3C;rooms floor="upstairs"&#x3E;
+		&#x3C;bathrooms&#x3E;1&#x3C;/bathrooms&#x3E;
+		&#x3C;bedrooms&#x3E;2&#x3C;/bedrooms&#x3E;
+		&#x3C;kitchens&#x3E;0&#x3C;/kitchens&#x3E;
+	&#x3C;/rooms&#x3E;
+
+	&#x3C;rooms floor="downstairs"&#x3E;
+		&#x3C;bathrooms&#x3E;1&#x3C;/bathrooms&#x3E;
+		&#x3C;bedrooms&#x3E;0&#x3C;/bedrooms&#x3E;
+		&#x3C;kitchens&#x3E;1&#x3C;/kitchens&#x3E;
+	&#x3C;/rooms&#x3E;
+&#x3C;/apartment&#x3E;
+						</code></pre>
 
 						<aside class="notes">
-							<a href="https://atom.io/" target="_blank">Atom</a>
+							<p>- It's representing some data of some kind</p>
+							<p>- Just take a minute to look at this, and see if it makes sense</p>
+							<p>- There's a few different ways you could represent this same data, eg you could but the name in an attribute, like "floor"</p>
+							<p>- XML doesn't define anything about what you call your tags, or how you nest them. It doesn't care. It's up to me how I structure it AND ALSO up to me how I interpret it...</p>
+							<p>- HTML is just XML that a browser can understand.</p>
 						</aside>
+					</section>
 
+					<section>
+						<h3>HTML is just a "defined" XML</h3>
+
+						<pre class="fragment"><code data-trim data-noescape>
+&#x3C;h1&#x3E;My article&#x3C;h1&#x3E;
+
+&#x3C;article&#x3E;
+	&#x3C;section class="large-section"&#x3E;My article content&#x3C;/section&#x3E;
+&#x3C;/article&#x3E;
+						</code></pre>
+
+						<aside class="notes">
+							<p>- What does "defined" mean? It just means it has some rules to it. The types of tags are interpretted in a certain way - those tags MEAN something to the browser reading it. [NEXT FRAGMENT]</p>
+							<p>- There is a certain structure to it, in what tags can go inside other tags. What attributes can go on tags.</p>
+							<p>- HTML5 made things a lot easier. The rules are way less strict now. You can pretty much use any tag name.</p>
+							<p>- Browser are super forgiving these days. That means if you make mistakes in your tags, it will try to fix them.</p>
+							<p>- But that's no excuse, keep your markup clean and tidy and easy to read and you won't have awful errors to debug. Don't be sloppy, I'm going to be strict about that because it's an excellent habit to have.</p>
+						</aside>
 					</section>
 
 				</section>
 
 				<section>
-					<h2>Basic HTML</h2>
+					<h2>Some HTML Tags</h2>
 					<pre class="fragment"><code data-trim data-noescape>
 <span>
-&#x3C;h1&#x3E; my content... &#x3C;/h1&#x3E;
+&#x3C;p&#x3E;...&#x3C;/p&#x3E;
 </span>
 <span class="fragment">
-&#x3C;img src=&#x22;url/to/the/image&#x22; alt=&#x22;Alternative Text&#x22; /&#x3E;
+&#x3C;img src=&#x22;path/to/the/image/puppy.jpg&#x22; alt=&#x22;A puppy&#x22; /&#x3E;
 </span>
 <span class="fragment">
-&#x3C;img src=&#x22;url/to/the/image&#x22; alt=&#x22;Alternative Text&#x22;&#x3E;
+&#x3C;div&#x3E;...&#x3C;/div&#x3E;
+</span>
+<span class="fragment">
+&#x3C;h1&#x3E;...&#x3C;/h1&#x3E;
+</span>
+<span class="fragment">
+&#x3C;input type=&#x22;text&#x22; /&#x3E;
 </span>
 <span class="fragment">
 &#x3C;!-- Comment --&#x3E;
 </span>
-
 					</code></pre>
 
 					<aside class="notes">
-						<a href="http://www.w3schools.com/html/default.asp" target="_blank">w3c Schools</a>
+						<p>- Can anyone guess what these tags mean, by looking at them?</p>
+						<p>- Did anyone notice anything special/unusual about the image and input tags? (multiple attributes, self closing)</p>
+						<p>- Input type can sometimes drastically change how the element is rendered. Come back to this in just a second.</p>
+						<p>- A comment is just a piece of text that gets ignored by the browser. It allows you to make a note in there. Very common in programming languages. I mostly use comments to apologise to future developers.</p>
+						<p>STOP: Take this time to use codepen to go through some example tags - h1's, look at the input types etc: <a href="https://codepen.io/pen/" target="_blank">https://codepen.io/pen/</a></p>
 					</aside>
 				</section>
 
@@ -86,7 +179,20 @@
 					<h2>Basic page set up</h2>
 
 					<section>
-						<p>Open up <code>index.html</code></p>
+						<ul>
+							<li class="fragment">We have to set up a "document"</li>
+							<li class="fragment">The document is built up from "markup"</li>
+							<li class="fragment">It contains a "doctype", a "head" and a "body"</li>
+							<li class="fragment">The "head" tells your browser some more information, such as language, title, favicon</li>
+							<li class="fragment">The "body" contains all of the content for your websites. Images, text, etc</li>
+							<li class="fragment">This is the sort of thing you tend to set up once, and never look at again</li>
+						</ul>
+
+						<aside class="notes">
+							<p>- This is definitely one of those "be aware, don't remember" things.</p>
+							<p>- I'm going to take you through this, but we're not going to look at it again for a little while.</p>
+							<p>- I have intentionally left out explaining DOCTYPE because it is the least important thing to know about. Easier to see an example.</p>
+						</aside>
 					</section>
 
 					<section>
@@ -102,74 +208,124 @@
 &#x3C;/body&#x3E;
 &#x3C;/html&#x3E;
 						</code></pre>
+
+						<aside class="notes">
+							<p>- Head is instructions for your web browser</p>
+							<p>- Body is what will be displayed</p>
+						</aside>
 					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>How about CSS?</h2>
+						<h3>What is it?</h3>
+
+						<ul>
+							<li class="fragment"><strong class="highlight">C</strong>ascading <strong class="highlight">S</strong>tyle <strong class="highlight">S</strong>heets</li>
+							<li class="fragment">Allows you to "style" your markup (HTML)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>With CSS you can...</h3>
+
+						<ul>
+							<li class="fragment">Add colours to elements and content</li>
+							<li class="fragment">Add backgrounds colours and images to elements</li>
+							<li class="fragment">Change the layout and positioning of elements</li>
+							<li class="fragment">Change the size of elements and content</li>
+							<li class="fragment">Add animations and transitions</li>
+							<li class="fragment">Add minor interactivity such as hover styles</li>
+						</ul>
+
+						<aside class="notes">
+							<p>- CSS is becoming constantly more powerful (and therefore somewhat complex)</p>
+							<p>- In a basic sense, it allows you to control the look at feel of your web page</p>
+							<p>- (Understood? Does everyone understand it's role? Can I explain more? <strong>Maybe Codepen?</strong>)</p>
+						</aside>
+					</section>
+
 				</section>
 
 				<section>
 					<h2>Basic CSS</h2>
 					<section>
 						<pre class="fragment"><code data-trim data-noescape>
-<span>h1{ color: red; }</span>
+<span>h1 { color: red; }</span>
 
-<span class="fragment">.my-class-name{ ... }</span>
+<span class="fragment">article { width: 300px; }</span>
 
-<span class="fragment">#my-id-name{ ... }</span>
+<span class="fragment">section { background-color: grey; }</span>
 
-<span class="fragment">#my-parent-id .my-child-class{ ... }</span>
+<span class="fragment">.my-class-name { ... }</span>
 
-<span class="fragment">p.specific-element{ ... }</span>
+<span class="fragment">#my-id-name { ... }</span>
+
+<span class="fragment">#my-parent-id .my-child-class { ... }</span>
+
+<span class="fragment">p.specific-element { ... }</span>
 						</code></pre>
 
 						<aside class="notes">
-							<p>Very little difference in how CSS treats id vs class.</p>
-							<p>Extremely important difference in how JS treats id vs class. Each id on page has to be unique. In general, avoid using id unless you need to.</p>
-							<p><strong>Go through some examples using <a href="/pages/lesson-2/" target="_blank">this page</a>.</strong></p>
+							<p>- We'll look at some CSS but I'm not going to explain it all too well. If you understand it great, but if not, don't worry – we'll be coming back to this next time and going into a lot more detail</p>
+							<p>- The first part is a "selector" which tells the browser what part of the HTML you are talking about</p>
+							<p>- The part inside the curly brackets is the "styling" – what you want to do with that selector</p>
+							<p>- There is multiple ways of "selecting" things, with classes and ids and more</p>
+							<p>- Try not to get too hung up on this. We're going to do more on this next time. I just wanted to show you it.</p>
 						</aside>
-					</section>
-
-					<section>
-						<pre><code data-trim data-noescape>
-&#x3C;!DOCTYPE html&#x3E;
-&#x3C;html lang=&#x22;en&#x22;&#x3E;
-&#x3C;head&#x3E;
-&#x9;&#x3C;meta charset=&#x22;UTF-8&#x22;&#x3E;
-&#x9;&#x3C;title&#x3E;Document&#x3C;/title&#x3E;
-
-&#x3C;style&#x3E; css goes here... &#x3C;/style&#x3E;
-
-&#x3C;/head&#x3E;
-&#x3C;body&#x3E;
-&#x9;&#x3C;!-- content --&#x3E;
-&#x3C;/body&#x3E;
-&#x3C;/html&#x3E;
-						</code></pre>
 					</section>
 				</section>
 
 				<section>
 					<section>
-						<h2>Let's do it!</h2>
-						<ul class="fragment">
-							<li>Put a form on the page with a title, inputs and a button</li>
-							<li>Make it look nice with CSS</li>
-							<li>Add some validation classes with CSS</li>
-							<li>Make the form submit on button press</li>
-							<li><em>Bonus:</em> Make the form validate with JS</li>
+						<h2>How about JavaScript?</h2>
+						<ul>
+							<li class="fragment">No. Later.</li>
 						</ul>
-					</section>
 
+						<aside class="notes">
+							<p>- We'll come back to JavaScipt later. It will be a lot easier to understand it once you know some HTML and CSS.</p>
+							<p>- JavaScript is it's own language, it looks totally different from HTML and CSS, but it DOES run in a browser in the same way.</p>
+							<p>- It allows for rich interactivity on your web site - think, click a button, make a box appear on the page and allow a user to enter their email address on a form.</p>
+						</aside>
+					</section>
+				</section>
+
+				<section>
 					<section>
-						<h2>Form</h2>
-						<pre><code data-trim data-noescape>
-&#x3C;form&#x3E;
-&#x9;&#x3C;label for=&#x22;myInputId&#x22;&#x3E;Name&#x3C;/label&#x3E;
-&#x9;&#x3C;input type=&#x22;text&#x22; id=&#x22;myInputId&#x22; name=&#x22;myInputName&#x22;&#x3E;
+						<h2>Homework!</h2>
+						<ul>
+							<li class="fragment">Get on Codepen - www.codepen.io</li>
+							<li class="fragment">Play around with some HTML. Put something on a page. Anything.</li>
+							<li class="fragment">Test out your Google-fu, look some stuff up. See how far you get.</li>
+						</ul>
 
-&#x9;&#x3C;button type=&#x22;submit&#x22;&#x3E;&#x3C;/button&#x3E;
-&#x3C;/form&#x3E;
-						</code></pre>
+						<aside class="notes">
+							<p>- Don't spend much time on this, I just basically want you to look at Codepen, because we'll use it next time</p>
+							<p>- Reason we use codepen is because you don't have to hassle with the DOCTYPE and HEAD stuff. Get right down to writing your HTML and CSS</p>
+						</aside>
 					</section>
+				</section>
 
+				<section>
+					<h2>Next time...</h2>
+					<h3>and future sessions</h3>
+					<ul>
+						<li class="fragment">We'll look at some more CSS</li>
+						<li class="fragment">Then we're going to move into practical stuff, on your own machines (or pairs, if you want!)</li>
+						<li class="fragment">We're going to work on a project that should allow for you to move in different directions</li>
+					</ul>
+
+					<aside class="notes">
+						<p>- We'll start on super easy stuff next week and just start building it up from there.</p>
+						<p>- If you're working individually, it means there's less group pressure. You can learn at your own pace and I'll just meander around and help as you need it.</p>
+						<!-- <p>- Who here is dog person?</p>
+						<p>- Who here is cat person? WRONG ANSWER</p>
+						<p>- Dog.ceo api</p> -->
+						<p>- If we start moving in different directions, we could actually end up with a "back end team", "front end team" and a "ux team" all working on different parts of the same project.</p>
+					</aside>
 				</section>
 
 			</div>
